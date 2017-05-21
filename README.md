@@ -1,4 +1,4 @@
-# SCYS project
+# DutyTask project
 
 This is an API in NODEJS
 
@@ -13,8 +13,8 @@ This APP required someone dependencies they are:
 When you have ready the dependencies just follow this tasks.
 
 You should type this:
-1. `git clone https://github.com/G33N/SCYS.git`
-2. `cd SCYS`
+1. `git clone https://github.com/G33N/DutyTask.git`
+2. `cd DutyTask`
 3. `npm install`
 4. `bower install`
 
@@ -33,4 +33,3 @@ End.
 
 * **Celiz Matias** - *Development Manager / Support Manager* - [G33N](https://github.com/G33N)
 See also the list of [contributors](https://github.com/G33N/IPOO/contributors) who participated in this project.
-# aSCYS
