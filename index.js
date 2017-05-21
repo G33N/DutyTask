@@ -13,7 +13,7 @@ app.set('port', process.env.PORT || 3002);
 console.log("1. Connecting to data base ...");
 // Here we find an appropriate database to connect to, defaulting to
 // localhost if we don't find one.
-var uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/scys';
+var uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://192.168.88.166:27017/dutytask';
 // Makes connection asynchronously.  Mongoose will queue up database
 // operations and release them when the connection is complete.
 mongoose.connect(uristring, function(err, res) {
@@ -46,11 +46,11 @@ for (var route in routes)
     app.use('/', routes[route]); // and uncomment this line
     // app.use('/api', routes[route]); // comment this if you want the server start as a API REST
 
-// // Para cualquier otra ruta, devuelve el archivo principal de la aplicación de Angular
-// app.get('*', function(req, res, next) {
-//     //res.status(404).send("Not found.");
-//     res.sendFile(path.join(__dirname, '', 'public/app.html'));
-// });
+// Para cualquier otra ruta, devuelve el archivo principal de la aplicación de Angular
+app.get('*', function(req, res, next) {
+    res.status(404).send("Not found.");
+    // res.sendFile(path.join(__dirname, '', 'public/app.html'));
+});
 
 console.log("5. Init server ...");
 http.createServer(app).listen(app.get('port'), function() {

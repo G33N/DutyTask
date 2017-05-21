@@ -7,7 +7,7 @@ var User = require("../models/user");
 router.get("/task", function(req, res) {
   Task.find(function(err, task) {
     User.populate(task, {
-      path: "client"
+      path: "user"
     }, function(err, task) {
         res.status(200).send(task);
       });

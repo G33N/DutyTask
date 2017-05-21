@@ -31,7 +31,7 @@ var schema = new Schema({
     type: String
   },
   state: {
-    type: String,
+    type: Boolean,
     required: true
   }
 });

@@ -1,7 +1,7 @@
 {
-  "name": "SCYS",
+  "name": "dutytask",
   "version": "1.0.0",
-  "description": "Scys API",
+  "description": "Duty Task API",
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.15.0",
