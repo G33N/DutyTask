@@ -29,7 +29,7 @@ var schema = new Schema({
   },
   comment: {
     type: String
-  }
+  },
   state: {
     type: String,
     required: true

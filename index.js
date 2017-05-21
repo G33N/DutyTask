@@ -8,7 +8,7 @@ var requireDir = require('require-dir');
 var morgan = require('morgan');
 
 app.locals.pretty = true;
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3002);
 
 console.log("1. Connecting to data base ...");
 // Here we find an appropriate database to connect to, defaulting to
@@ -46,11 +46,11 @@ for (var route in routes)
     app.use('/', routes[route]); // and uncomment this line
     // app.use('/api', routes[route]); // comment this if you want the server start as a API REST
 
-// Para cualquier otra ruta, devuelve el archivo principal de la aplicación de Angular
-app.get('*', function(req, res, next) {
-    //res.status(404).send("Not found.");
-    res.sendFile(path.join(__dirname, '', 'public/app.html'));
-});
+// // Para cualquier otra ruta, devuelve el archivo principal de la aplicación de Angular
+// app.get('*', function(req, res, next) {
+//     //res.status(404).send("Not found.");
+//     res.sendFile(path.join(__dirname, '', 'public/app.html'));
+// });
 
 console.log("5. Init server ...");
 http.createServer(app).listen(app.get('port'), function() {
