@@ -39,7 +39,7 @@ router.post("/task/update/:_id", function(req, res) {
       Task.startDate = req.body.startDate || Task.startDate;
       Task.endDate = req.body.endDate || Task.endDate;
       Task.user = req.body.user || Task.user;
-      Task.tittle = req.body.tittle || Task.tittle;
+      Task.title = req.body.title || Task.title;
       Task.detail = req.body.detail || Task.detail;
       Task.comment = req.body.comment || Task.comment;
       Task.state = req.body.state || Task.state;

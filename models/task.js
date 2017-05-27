@@ -18,7 +18,7 @@ var schema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  tittle: {
+  title: {
     type: String,
     required: true,
     default: 'New Task'
