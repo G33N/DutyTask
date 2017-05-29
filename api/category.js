@@ -31,7 +31,8 @@ router.post("/category/update/:_id", function(req, res) {
     if (err) {
       res.status(500).send(err);
     } else {
-      Category.time = req.body.date || Category.time;
+      Category.time = req.body.time || Category.time;
+      Category.name = req.body.name || Category.name;
       Category.save(function(err, Category) {
         if (err) {
           res.status(500).send(err)

@@ -18,7 +18,20 @@ router.get("/task", function(req, res) {
         });
     });
 });
-
+// Devolver todos los Task
+router.get("/task/:_id", function(req, res) {
+    Task.find({user:req.params._id},function(err, task) {
+        User.populate(task, {
+            path: "user"
+        }, function(err, task) {
+            Category.populate(task, {
+                path: "category"
+            }, function(err, task) {
+                res.status(200).send(task);
+            });
+        });
+    });
+});
 // Crea un Task
 router.post("/task", function(req, res) {
     var task = new Task(req.body);

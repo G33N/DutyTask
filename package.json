@@ -8,7 +8,13 @@
     "express": "^4.13.4",
     "mongoose": "^4.4.13",
     "require-dir": "^0.3.0",
-    "morgan": "^1.8.1"
+    "morgan": "^1.8.1",
+    "connect-mongo": "0.8.2",
+    "cookie-parser": "1.4.0",
+    "emailjs": "^1.0.4",
+    "errorhandler": "1.4.2",
+    "express-session": "1.11.3",
+    "moment": "2.10.3"
   },
   "devDependencies": {},
   "scripts": {

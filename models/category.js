@@ -6,6 +6,10 @@ var schema = new Schema({
       type: String,
       required: true
     },
+    name: {
+      type: String,
+      required: true
+    },
     time: {
       type: Number,
       required: true

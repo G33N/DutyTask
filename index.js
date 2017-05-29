@@ -6,6 +6,10 @@ var mongoose = require('mongoose');
 var bodyParser = require("body-parser");
 var requireDir = require('require-dir');
 var morgan = require('morgan');
+var session = require('express-session');
+var errorHandler = require('errorhandler');
+var cookieParser = require('cookie-parser');
+var MongoStore = require('connect-mongo')(session);
 
 app.locals.pretty = true;
 app.set('port', process.env.PORT || 3002);
@@ -13,7 +17,7 @@ app.set('port', process.env.PORT || 3002);
 console.log("1. Connecting to data base ...");
 // Here we find an appropriate database to connect to, defaulting to
 // localhost if we don't find one.
-var uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://192.168.88.166:27017/dutytask';
+var uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost:27017/dutytask';
 // Makes connection asynchronously.  Mongoose will queue up database
 // operations and release them when the connection is complete.
 mongoose.connect(uristring, function(err, res) {
@@ -25,6 +29,7 @@ mongoose.connect(uristring, function(err, res) {
 });
 
 console.log("2. Config middleware ...");
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
@@ -39,6 +44,15 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+app.use(session({
+	secret: 'faeb4453e5d14fe6f6d04637f78077c76c73d1b4',
+	proxy: true,
+	resave: true,
+	saveUninitialized: true,
+	store: new MongoStore({ mongooseConnection: mongoose.connection })
+	})
+);
 
 console.log("4. Config API ...");
 var routes = requireDir('./api/');
